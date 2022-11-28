@@ -18,7 +18,8 @@ before_install:
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-# script: 
+script: 
+  - echo "tested"
   # - docker run eslamfakhry/react-test npm test -- --coverage
 
 deploy:
