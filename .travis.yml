@@ -14,6 +14,9 @@ before_install:
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project k8s-tut-369922
-  - gcloud config set zone me-west1-a
+  - gcloud config set compute/zone me-west1-a
   - gcloud container cluster get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+script: 
+  - docker run stephengrider/react-test npm test -- --coverage
